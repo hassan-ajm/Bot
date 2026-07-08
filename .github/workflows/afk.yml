@@ -1,0 +1,30 @@
+name: Minecraft AFK Bot
+
+on:
+  workflow_dispatch: # Allows you to start it manually with a button click
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-python-version: '3.10'
+
+    - name: Set up Node.js (Required for Mineflayer)
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: |
+        npm install mineflayer
+        pip install -r requirements.txt
+
+    - name: Run AFK Bot
+      run: python main.py
