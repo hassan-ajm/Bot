@@ -26,5 +26,5 @@ jobs:
         npm install mineflayer
         pip install -r requirements.txt
 
-    - name: Run AFK Bot
-      run: python main.py
+- name: Run AFK Bot
+  run: python -u main.py
